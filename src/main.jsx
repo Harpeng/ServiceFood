@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { restaurants } from "./utils/data";
+import { restaurants } from "./constants/constants";
 
 const rootElement = document.getElementById("root");
 const root = ReactDOM.createRoot(rootElement);
