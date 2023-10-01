@@ -1,6 +1,5 @@
 import React from "react";
 import { restaurants } from "../../constants/constants";
-import { Restaurant } from "../../components/restaurant/component";
 import { RestaurantTabs } from "../../components/restaurant-tabs/component";
 import { RestaurantBlock } from "../../components/restaurant-block/component";
 
