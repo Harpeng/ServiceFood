@@ -1,22 +1,24 @@
 import React from "react";
 import { restaurants } from "../../constants/constants";
-import { Tabs } from "../../components/tabs/tabs";
-import { TabsContent } from "../../components/tabsContent/component";
+import { Tab } from "../../components/tab/component";
+import { Restaurant } from "../../components/restaurant/component";
 
 export const Main = () => {
-    const [current, setCurrent] = React.useState(restaurants[0].name)
+    const [activeRestaurantName, setActiveRestaurantName] = React.useState(restaurants[0].id);
+    const found = restaurants.find(({id}) => {
+        return id === activeRestaurantName;
+      });
 
   return (
     <section>
       <ul style={{display: 'flex'}}>
         {restaurants.map(({name, id}) => (
-        <Tabs value={name} key={id} onClick={() => setCurrent(name)}></Tabs>
+        <Tab value={name} key={id} onClick={() => setActiveRestaurantName(id)}></Tab>
       ))}
       </ul>
         {
-            restaurants.filter(({name}) => current === name).map((data, id) => (
-                <TabsContent data={data} key={id} />
-            ))
+            found  &&
+                <Restaurant data={found} />
         }
     </section>
   );

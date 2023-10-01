@@ -1,8 +1,8 @@
 import React from "react";
-import { Menu } from "../menu/menu";
-import { Reviews } from "../reviews/reviews";
+import { Menu } from "../menu/component";
+import { Reviews } from "../reviews/component";
 
-export const TabsContent = ({data}) => {
+export const Restaurant = ({data}) => {
 
   return (
     <div>

@@ -1,5 +1,5 @@
 import React from "react";
-import { Dish } from "../dish/dish";
+import { Dish } from "../dish/component";
 
 export const Menu = ({menu}) => {
 

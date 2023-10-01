@@ -1,8 +1,7 @@
 import React from "react";
-import { Review } from "../review/review";
+import { Review } from "../review/component";
 
 export const Reviews = ({reviews}) => {
-
   return (
     <ul>
         {

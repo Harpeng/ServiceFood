@@ -1,9 +1,9 @@
 import React from "react";
 
-export const Tabs = ({onClick, value}) => {
+export const Tab = ({onClick, value}) => {
 
   return (
-    <div style={{display: 'flex'}}>
+    <div >
         <button type='button' onClick={onClick} >{value}</button>
     </div>
   );

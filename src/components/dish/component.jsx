@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "../button/button";
+import { Button } from "../button/component";
 
 export const Dish = ({name}) => {
     const [count, setCount] = React.useState(0)
