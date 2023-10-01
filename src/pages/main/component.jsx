@@ -1,7 +1,8 @@
 import React from "react";
 import { restaurants } from "../../constants/constants";
-import { Tab } from "../../components/tab/component";
 import { Restaurant } from "../../components/restaurant/component";
+import { RestaurantTabs } from "../../components/restaurant-tabs/component";
+import { RestaurantBlock } from "../../components/restaurant-block/component";
 
 export const Main = () => {
     const [activeRestaurantName, setActiveRestaurantName] = React.useState(restaurants[0].id);
@@ -11,15 +12,8 @@ export const Main = () => {
 
   return (
     <section>
-      <ul style={{display: 'flex'}}>
-        {restaurants.map(({name, id}) => (
-        <Tab value={name} key={id} onClick={() => setActiveRestaurantName(id)}></Tab>
-      ))}
-      </ul>
-        {
-            found  &&
-                <Restaurant data={found} />
-        }
+        <RestaurantTabs data={restaurants} onClick={setActiveRestaurantName}/>
+        <RestaurantBlock restaurant={found} />
     </section>
   );
 };
