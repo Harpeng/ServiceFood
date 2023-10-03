@@ -1,10 +1,14 @@
 import React from "react";
+import styles from "./styles.module.css";
 
-export const Tab = ({onClick, value}) => {
-
+export const Tab = ({ onClick, value, state, id }) => {
   return (
-    <div >
-        <button type='button' onClick={onClick} >{value}</button>
-    </div>
+    <button
+      className={`${styles.button} ${id === state ? styles.active : ""}`}
+      type="button"
+      onClick={onClick}
+    >
+      {value}
+    </button>
   );
 };

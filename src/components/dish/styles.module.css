@@ -1,0 +1,19 @@
+.dishList {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    align-items: center;
+}
+
+.dishList:last-child {
+    margin-bottom: 0;
+}
+
+.countBlock {
+    display: flex;
+    width: 100px;
+    height: 50px;
+    border-radius: 22px;
+    background-color: #F5F4F2;
+    justify-content: space-between;
+}
