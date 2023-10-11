@@ -1,3 +1,14 @@
-.reviewsList {
-    padding-left: 0;
+.review {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0;
+  margin: 10px 0;
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
 }

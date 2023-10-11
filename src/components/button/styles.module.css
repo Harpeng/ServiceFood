@@ -4,3 +4,13 @@
     font-size: 24px;
     cursor: pointer;
 }
+
+.darkTheme {
+    color: white;
+}
+
+.darkTheme:disabled {
+    color: black;
+}
+
+

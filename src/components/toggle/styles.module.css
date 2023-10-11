@@ -1,0 +1,70 @@
+.switchContainer {
+  gap: 10px;
+}
+
+.switcher {
+    position: relative;
+    display: inline-block;
+    width: 34px;
+    height: 18px;
+}
+
+.icon {
+  width: 28px;
+  height: 28px;
+  background-position: center;
+  background-repeat: no-repeat;
+  object-fit: contain;
+}
+
+.lightIcon {
+  background-image: url("../../images/icon__white-theme.svg");
+}
+
+.darkIcon {
+  background-image: url("../../images/icon__night-theme.svg");
+}
+
+.input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.input:checked + .slider {
+    background: linear-gradient(63.18deg, rgb(128, 26, 179), rgb(76, 76, 255));
+    color: white
+}
+
+.input:checked + :before {
+  -webkit-transform: translateX(15px);
+  -ms-transform: translateX(15px);
+  transform: translateX(15px);
+  background-color: white;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #333;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  border-radius: 9999px;
+}
+
+.slider::before {
+  position: absolute;
+  content: "";
+  top: 2px;
+  left: 2px;
+  height: 15px;
+  width: 15px;
+  background-color: #24b47e;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  border-radius: 50%;
+}

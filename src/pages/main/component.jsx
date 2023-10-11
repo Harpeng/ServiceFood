@@ -5,6 +5,9 @@ import { AppHeader } from "../../components/app-header/component";
 import { Restaurant } from "../../components/restaurant/component";
 import { Footer } from "../../components/footer/component";
 import styles from "./styles.module.css";
+import { ThemeContext } from "../../contexts/Theme";
+import { useContext } from "react";
+import classNames from "classnames";
 
 export const Main = () => {
   const [activeRestaurantName, setActiveRestaurantName] = React.useState(
@@ -13,26 +16,21 @@ export const Main = () => {
   const findedRestaurant = restaurants.find(({ id }) => {
     return id === activeRestaurantName;
   });
-
-  const handleClick = (id) => {
-    setActiveRestaurantName(id);
-    e.target.classList.contains("active") === true
-      ? e.target.classList.remove("active")
-      : e.target.classList.add("active");
-  };
+  const {theme} = useContext(ThemeContext)
 
   return (
-    <section className={styles.page}>
+    <section className={classNames(styles.page, {[styles.dark] : theme === "dark"})}>
       <AppHeader className={styles.header} />
       <main className={styles.content}>
           <RestaurantTabs
             state={activeRestaurantName}
             restaurants={restaurants}
             onClick={setActiveRestaurantName}
+            className={styles.tabs}
           />
-        {findedRestaurant && <Restaurant restaurant={findedRestaurant} />}
+        {findedRestaurant && <Restaurant className={styles.restaurant} restaurant={findedRestaurant} />}
       </main>
-      <Footer />
+      <Footer className={styles.footer} />
     </section>
   );
 };

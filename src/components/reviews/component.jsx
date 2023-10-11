@@ -1,15 +1,16 @@
 import React from "react";
 import { Review } from "../review/component";
+import { BtnNewReview } from "../btnNewReview/component";
+import classNames from "classnames";
 import styles from "./styles.module.css"
 
-export const Reviews = ({reviews}) => {
+export const Reviews = ({ reviews, className }) => {
   return (
-    <ul className={styles.reviewsList}>
-        {
-            reviews.map((review, id) => (
-                <Review review={review} key={id}></Review>
-            ))
-        }
+    <ul className={classNames(className)}>
+      {reviews.map((review, id) => (
+        <Review  className={styles.review} review={review} key={id}></Review>
+      ))}
+      <BtnNewReview className={styles.btn} />
     </ul>
   );
 };
