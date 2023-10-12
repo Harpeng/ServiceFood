@@ -10,11 +10,11 @@ import { useContext } from "react";
 import classNames from "classnames";
 
 export const Main = () => {
-  const [activeRestaurantName, setActiveRestaurantName] = React.useState(
+  const [activeRestaurantId, setActiveRestaurantId] = React.useState(
     restaurants[0].id
   );
   const findedRestaurant = restaurants.find(({ id }) => {
-    return id === activeRestaurantName;
+    return id === activeRestaurantId;
   });
   const {theme} = useContext(ThemeContext)
 
@@ -23,9 +23,9 @@ export const Main = () => {
       <AppHeader className={styles.header} />
       <main className={styles.content}>
           <RestaurantTabs
-            state={activeRestaurantName}
+            state={activeRestaurantId}
             restaurants={restaurants}
-            onClick={setActiveRestaurantName}
+            onClick={setActiveRestaurantId}
             className={styles.tabs}
           />
         {findedRestaurant && <Restaurant className={styles.restaurant} restaurant={findedRestaurant} />}
