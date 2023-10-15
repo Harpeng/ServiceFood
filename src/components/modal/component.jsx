@@ -6,6 +6,7 @@ import styles from "./styles.module.css";
 const DEFAULT_VALUE = {
   name: "",
   review: "",
+  rating: 0,
 };
 
 const reducer = (state, action) => {
@@ -16,11 +17,15 @@ const reducer = (state, action) => {
         name: action.payload,
       };
     case "setReview":
-      console.log(action.payload)
       return {
         ...state,
         review: action.payload,
       };
+      case "setRating":
+        return {
+          ...state,
+          rating: action.payload,
+        };
       case "reset":
         return {
           ...DEFAULT_VALUE
@@ -79,7 +84,7 @@ export const Modal = ({ onClose }) => {
             <div className={styles.inputContainer}>
               <h4 className={styles.name}>Рейтинг</h4>
               <div className={styles.rate}>
-              <StarRating />
+              <StarRating value={formValue.rating} onChange={(value) => dispatch({type: "setRating", payload: value})} />
               </div>
             </div>
             <div className={styles.btnGroup}>

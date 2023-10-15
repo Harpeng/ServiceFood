@@ -3,22 +3,21 @@ import styles from "./styles.module.css";
 import { Star } from "../star/component";
 import classNames from "classnames";
 
-export const StarRating = () => {
-  const [rating, setRating] = React.useState(null);
+export const StarRating = ({onChange, value}) => {
   const [hover, setHover] = React.useState(null);
   return (
     <div className={classNames(styles.rating)}>
-      {[...Array(5)].map((star, index) => {
+      {[...Array(5)].map((_, index) => {
         const currentRating = index + 1;
         return (
           <Star
             className={styles.star}
             key={index}
-            value={currentRating}
-            onClick={() => setRating(currentRating)}
+            value={value}
+            onClick={() => onChange(currentRating)}
             onMouseEnter={() => setHover(currentRating)}
             onMouseLeave={() => setHover(null)}
-            color={currentRating <= (hover || rating) ? "#ffc107" : "e4e5e9"}
+            color={currentRating <= (hover || value) ? "#ffc107" : "e4e5e9"}
           />
         );
       })}
