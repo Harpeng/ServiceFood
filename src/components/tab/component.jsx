@@ -3,8 +3,11 @@ import styles from "./styles.module.css";
 import { ThemeContext } from "../../contexts/Theme";
 import { useContext } from "react";
 import classNames from "classnames";
+import { selectRestarauntsById } from "../../redux/entities/restaraunts/selectors";
+import { useSelector } from "react-redux/es/hooks/useSelector";
 
-export const Tab = ({ onClick, value, state, id, className }) => {
+export const Tab = ({ onClick, state, id, className }) => {
+  const restaurant = useSelector((state) => selectRestarauntsById(state, id));
   const {theme} = useContext(ThemeContext);
 
   return (
@@ -13,7 +16,7 @@ export const Tab = ({ onClick, value, state, id, className }) => {
       type="button"
       onClick={onClick}
     >
-      {value}
+      {restaurant.name}
     </button>
   );
 };

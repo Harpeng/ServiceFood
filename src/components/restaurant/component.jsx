@@ -5,9 +5,12 @@ import styles from "./styles.module.css";
 import { ThemeContext } from "../../contexts/Theme";
 import { useContext } from "react";
 import classNames from "classnames";
+import { useSelector } from "react-redux/es/hooks/useSelector";
+import { selectRestarauntsById } from "../../redux/entities/restaraunts/selectors";
 
-export const Restaurant = ({restaurant, className}) => {
+export const Restaurant = ({activeRestaraunt, className}) => {
   const {theme} = useContext(ThemeContext);
+  const restaurant = useSelector((state) => selectRestarauntsById(state, activeRestaraunt));
 
   return (
     <div className={classNames(className)}>

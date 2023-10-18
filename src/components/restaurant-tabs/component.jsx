@@ -5,13 +5,13 @@ import { ThemeContext } from "../../contexts/Theme";
 import { useContext } from "react";
 import classNames from "classnames";
 
-export const RestaurantTabs = ({restaurants,state, onClick, className}) => {
+export const RestaurantTabs = ({restaurantIds ,state, onClick, className}) => {
   const {theme} = useContext(ThemeContext);
 
   return (
       <ul className={classNames(className,styles.tabWrapper, {[styles.darkTabWrapper] : theme === "dark"})}>
-        {restaurants.map(({name, id}) => (
-        <Tab className={styles.tab} state={state} value={name} id={id} key={id} onClick={() => onClick(id)}></Tab>
+        {restaurantIds.map((id) => (
+        <Tab className={styles.tab} state={state} id={id} key={id} onClick={() => onClick(id)}></Tab>
       ))}
       </ul>
   );

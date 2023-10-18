@@ -4,11 +4,12 @@ import styles from "./styles.module.css"
 
 export const Menu = ({menu}) => {
 
+  console.log(menu)
   return (
     <ul>
        {
-        menu.map((item, id) => (
-            <Dish className={styles.dish} name={item.name} key={id} />
+        menu.map((id) => (
+            <Dish className={styles.dish} key={id} id={id} />
         ))
        } 
     </ul>

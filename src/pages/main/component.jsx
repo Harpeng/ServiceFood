@@ -1,5 +1,5 @@
 import React from "react";
-import { restaurants } from "../../constants/constants";
+import { restaurants } from "../../constants/mock";
 import { RestaurantTabs } from "../../components/restaurant-tabs/component";
 import { AppHeader } from "../../components/app-header/component";
 import { Restaurant } from "../../components/restaurant/component";
@@ -8,15 +8,21 @@ import styles from "./styles.module.css";
 import { ThemeContext } from "../../contexts/Theme";
 import { useContext } from "react";
 import classNames from "classnames";
+import { useSelector  } from "react-redux/es/hooks/useSelector";
+import { selectRestarauntsId } from "../../redux/entities/restaraunts/selectors";
 
 export const Main = () => {
+  const restaurantIds = useSelector((state) => selectRestarauntsId(state));
+  
   const [activeRestaurantId, setActiveRestaurantId] = React.useState(
-    restaurants[0].id
+    restaurantIds[0]
   );
-  const findedRestaurant = restaurants.find(({ id }) => {
+  const findedRestaurant = restaurantIds.find(( id ) => {
     return id === activeRestaurantId;
   });
   const {theme} = useContext(ThemeContext)
+
+  console.log(findedRestaurant)
 
   return (
     <section className={classNames(styles.page, {[styles.dark] : theme === "dark"})}>
@@ -24,11 +30,11 @@ export const Main = () => {
       <main className={styles.content}>
           <RestaurantTabs
             state={activeRestaurantId}
-            restaurants={restaurants}
+            restaurantIds={restaurantIds}
             onClick={setActiveRestaurantId}
             className={styles.tabs}
           />
-        {findedRestaurant && <Restaurant className={styles.restaurant} restaurant={findedRestaurant} />}
+        {findedRestaurant && <Restaurant className={styles.restaurant} activeRestaraunt={findedRestaurant} />}
       </main>
       <Footer className={styles.footer} />
     </section>
