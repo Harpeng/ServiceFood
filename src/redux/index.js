@@ -13,6 +13,4 @@ import dish from "./entities/dishes";
     },
  });
 
- console.log(store.getState())
-
  export default store;

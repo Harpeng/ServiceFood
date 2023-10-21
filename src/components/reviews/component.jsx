@@ -1,10 +1,10 @@
 import React from "react";
-import { Review } from "../review/component";
 import { BtnNewReview } from "../btnNewReview/component";
 import classNames from "classnames";
 import styles from "./styles.module.css";
 import { ThemeContext } from "../../contexts/Theme";
 import { useContext } from "react";
+import { ReviewContainer } from "../review/container";
 
 export const Reviews = ({ reviews, className }) => {
   const { theme } = useContext(ThemeContext);
@@ -16,7 +16,7 @@ export const Reviews = ({ reviews, className }) => {
             [styles.reviewDarkTheme]: theme === "dark",
           })}
         >
-          <Review className={styles.review} reviewId={id} key={id}></Review>
+          <ReviewContainer className={styles.review} reviewId={id} key={id}></ReviewContainer>
         </li>
       ))}
       <BtnNewReview className={styles.btn} />

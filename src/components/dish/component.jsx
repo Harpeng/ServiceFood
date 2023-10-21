@@ -4,13 +4,10 @@ import styles from "./styles.module.css";
 import { ThemeContext } from "../../contexts/Theme";
 import { useContext } from "react";
 import classNames from "classnames";
-import { selectDishesById } from "../../redux/entities/dishes/selectors";
-import { useSelector } from "react-redux/es/hooks/useSelector";
 
-export const Dish = ({id, className}) => {
+export const Dish = ({dish, className}) => {
   const [count, setCount] = React.useState(0);
   const {theme} = useContext(ThemeContext);
-  const dish = useSelector((state) => selectDishesById(state, id));
 
 
   return (

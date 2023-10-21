@@ -21,3 +21,7 @@
     flex-direction: column;
     list-style-type: none;
 }
+
+.reviewDarkTheme {
+    color: white;
+}

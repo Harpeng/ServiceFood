@@ -3,11 +3,8 @@ import styles from "./styles.module.css";
 import { ThemeContext } from "../../contexts/Theme";
 import { useContext } from "react";
 import classNames from "classnames";
-import { selectRestarauntsById } from "../../redux/entities/restaraunts/selectors";
-import { useSelector } from "react-redux/es/hooks/useSelector";
 
-export const Tab = ({ onClick, state, id, className }) => {
-  const restaurant = useSelector((state) => selectRestarauntsById(state, id));
+export const Tab = ({ onClick, state, id, className, restaurant }) => {
   const {theme} = useContext(ThemeContext);
 
   return (
