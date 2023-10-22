@@ -12,10 +12,10 @@ export const Restaurant = ({restaurant, className}) => {
   return (
     <div className={classNames(className)}>
         <h2 className={classNames(styles.name, {[styles.darkThemeName] : theme === "dark"})}>{restaurant.name}</h2>
-        <MenuContainer menu={restaurant.menu}/>
+        <MenuContainer restaurantId={restaurant.id}/>
         <div className={styles.reviews}>
           <h3 className={classNames(styles.title, {[styles.darkThemeName] : theme === "dark"})}>Отзывы:</h3>
-        <ReviewsContainer className={styles.reviews} reviews={restaurant.reviews} />
+        <ReviewsContainer className={styles.reviews} restaurantId={restaurant.id} />
         </div>
     </div>
   );
