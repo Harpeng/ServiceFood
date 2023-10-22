@@ -6,11 +6,11 @@ import { ThemeContext } from "../../contexts/Theme";
 import { useContext } from "react";
 import { ReviewContainer } from "../review/container";
 
-export const Reviews = ({ reviews, className }) => {
+export const Reviews = ({ reviewId, className }) => {
   const { theme } = useContext(ThemeContext);
   return (
     <ul className={classNames(className, styles.reviews)}>
-      {reviews.map((id) => (
+      {reviewId.map((id) => (
         <li key={id}
           className={classNames(className, styles.review, {
             [styles.reviewDarkTheme]: theme === "dark",

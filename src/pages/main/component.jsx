@@ -7,11 +7,18 @@ import { ThemeContext } from "../../contexts/Theme";
 import { useContext } from "react";
 import classNames from "classnames";
 import { RestaurantContainer } from "../../components/restaurant/container";
+import { REQUEST_STATUS } from "../../constants/statuses";
+import { useEffect } from "react";
 
-export const Main = ({ restaurantIds }) => {
-  const [activeRestaurantId, setActiveRestaurantId] = React.useState(
-    restaurantIds[0]
-  );
+export const Main = ({ restaurantIds, loading }) => {
+  const [activeRestaurantId, setActiveRestaurantId] = React.useState();
+
+  useEffect(() => {
+    if (restaurantIds?.length && loading === REQUEST_STATUS.fulfilled) {
+      setActiveRestaurantId(restaurantIds[0]);
+    }
+  }, [restaurantIds, loading]);
+
   const findedRestaurant = restaurantIds.find((id) => {
     return id === activeRestaurantId;
   });
@@ -21,22 +28,30 @@ export const Main = ({ restaurantIds }) => {
     <section
       className={classNames(styles.page, { [styles.dark]: theme === "dark" })}
     >
-      <AppHeader className={styles.header} />
-      <main className={styles.content}>
-        <RestaurantTabs
-          state={activeRestaurantId}
-          restaurantIds={restaurantIds}
-          onClick={setActiveRestaurantId}
-          className={styles.tabs}
-        />
-        {findedRestaurant && (
-          <RestaurantContainer
-            className={styles.restaurant}
-            activeRestaraunt={findedRestaurant}
-          />
-        )}
-      </main>
-      <Footer className={styles.footer} />
+      {loading === REQUEST_STATUS.pending ? (
+        <div className={styles.loader}>Loading...</div>
+      ) : loading === REQUEST_STATUS.rejected ? (
+        <div className={styles.loader}>Error...</div>
+      ) : (
+        <>
+          <AppHeader className={styles.header} />
+          <main className={styles.content}>
+            <RestaurantTabs
+              state={activeRestaurantId}
+              restaurantIds={restaurantIds}
+              onClick={setActiveRestaurantId}
+              className={styles.tabs}
+            />
+            {findedRestaurant && (
+              <RestaurantContainer
+                className={styles.restaurant}
+                activeRestaraunt={findedRestaurant}
+              />
+            )}
+          </main>
+          <Footer className={styles.footer} />
+        </>
+      )}
     </section>
   );
 };
