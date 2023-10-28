@@ -1,5 +1,3 @@
-import React from "react";
-import { Dish } from "../dish/component";
 import styles from "./styles.module.css"
 import { DishContainer } from "../dish/container";
 

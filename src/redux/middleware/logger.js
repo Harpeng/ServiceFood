@@ -1,3 +1,3 @@
-export const loggerMiddleware = (store) => (next) => (action) => {
+export const loggerMiddleware = () => (next) => (action) => {
     next(action);
 }

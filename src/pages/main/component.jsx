@@ -7,12 +7,11 @@ import { ThemeContext } from "../../contexts/Theme";
 import { useContext } from "react";
 import classNames from "classnames";
 import { RestaurantContainer } from "../../components/restaurant/container";
-import { REQUEST_STATUS } from "../../constants/statuses";
 import { useEffect } from "react";
 
 export const Main = ({ restaurantIds, loading }) => {
   const [activeRestaurantId, setActiveRestaurantId] = React.useState();
-//   && loading === REQUEST_STATUS.fulfilled
+
   useEffect(() => {
     if (restaurantIds?.length ) {
       setActiveRestaurantId(restaurantIds[0]);

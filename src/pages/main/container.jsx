@@ -16,7 +16,7 @@ export const MainContainer = () => {
 
   useEffect(() => {
     dispatch(getRestaraunts());
-  }, []);
+  }, [dispatch]);
 
   return (
         <Main restaurantIds={restaurantIds} loading={loadingStatus} />

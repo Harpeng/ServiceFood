@@ -1,5 +1,3 @@
-import React from "react";
-import { Tab } from "../tab/component";
 import styles from "./styles.module.css";
 import { ThemeContext } from "../../contexts/Theme";
 import { useContext } from "react";

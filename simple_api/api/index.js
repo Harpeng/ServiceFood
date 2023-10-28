@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const { nanoid } = require("nanoid");
 const { restaurants, products, reviews, users } = require("./mock");
-const { reply, getById, updateById } = require("./utils");
+const { reply, getById, updateById } = require("./utils").default;
 
 router.get("/restaurants", (req, res, next) => {
   console.log("request");

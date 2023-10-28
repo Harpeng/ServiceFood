@@ -1,6 +1,4 @@
-import React from "react";
 import styles from "./styles.module.css";
-import classNames from "classnames";
 import {FaStar} from 'react-icons/fa';
 
 export const Star = ({onMouseEnter, onMouseLeave, color, value, onClick }) => {

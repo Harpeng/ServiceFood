@@ -77,7 +77,6 @@ export const Modal = ({ onClose }) => {
                 name={formValue.review}
                 onChange={(event) => {
                     dispatch({type: "setName", payload: event.target.name})
-                    console.log(payload)
                 }}
               ></textarea>
             </div>

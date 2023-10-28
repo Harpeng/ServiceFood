@@ -13,4 +13,4 @@ const updateById = (entities) => (id, data) => {
   return entities[index];
 };
 
-module.exports = { reply, getById, updateById };
+export default { reply, getById, updateById };
