@@ -5,7 +5,7 @@ import { ThemeContext } from "../../contexts/Theme";
 import { useContext } from "react";
 import { ReviewContainer } from "../review/container";
 
-export const Reviews = ({ reviewId, className }) => {
+export const Reviews = ({restaurantId, reviewId, className }) => {
   const { theme } = useContext(ThemeContext);
   return (
     <ul className={classNames(className, styles.reviews)}>
@@ -18,7 +18,7 @@ export const Reviews = ({ reviewId, className }) => {
           <ReviewContainer className={styles.review} reviewId={id} key={id}></ReviewContainer>
         </li>
       ))}
-      <BtnNewReview className={styles.btn} />
+      <BtnNewReview restaurantId={restaurantId} className={styles.btn} />
     </ul>
   );
 };

@@ -6,10 +6,14 @@ import { ThemeContext } from "../../contexts/Theme";
 import { useContext } from "react";
 import classNames from "classnames";
 
-export const BtnNewReview = ({className}) => {
+export const BtnNewReview = ({className, restaurantId}) => {
   const [showModal, setShowModal] = React.useState(false);
   const modalRoot = document.getElementById("react-modals");
   const {theme} = useContext(ThemeContext);
+
+  const closeModal = () => {
+    setShowModal(false)
+  }
 
   return (
     <>
@@ -18,7 +22,7 @@ export const BtnNewReview = ({className}) => {
       </button>
       {showModal &&
         createPortal(
-          <Modal  onClose={() => setShowModal(false)} />,
+          <Modal restaurantId={restaurantId}  onClose={closeModal} />,
           modalRoot
         )}
     </>

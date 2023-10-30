@@ -1,13 +1,15 @@
-import React from "react";
 import { Button } from "../button/component";
 import styles from "./styles.module.css";
 import { ThemeContext } from "../../contexts/Theme";
 import { useContext } from "react";
 import classNames from "classnames";
+import { useDispatch } from "react-redux";
+import { cartActions } from "../../redux/ui/cart";
 
-export const Dish = ({dish, className}) => {
-  const [count, setCount] = React.useState(0);
+export const Dish = ({increment, decrement, amount, dish, className}) => {
   const {theme} = useContext(ThemeContext);
+
+  const dispatch = useDispatch();
 
 
   return (
@@ -16,14 +18,14 @@ export const Dish = ({dish, className}) => {
       <div className={classNames(styles.countBlock, {[styles.darkThemeCount] : theme === "dark"})}>
         <Button
           title="-"
-          onClick={() => setCount(count - 1)}
-          disabled={count === 0}
+          onClick={decrement}
+          disabled={amount === 0}
         ></Button>
-        <p>{count}</p>
+        <p>{amount}</p>
         <Button
           title="+"
-          onClick={() => setCount(count + 1)}
-          disabled={count === 5}
+          onClick={increment}
+          disabled={amount === 5}
         ></Button>
       </div>
     </li>

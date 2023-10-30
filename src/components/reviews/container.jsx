@@ -2,12 +2,12 @@ import { useSelector } from "react-redux";
 import { Reviews } from "./component";
 import { getReviews } from "../../redux/entities/reviews/thunks/get-reviews";
 import { getUsers } from "../../redux/entities/users/thunks/get-users";
-import {selectRestaurantReviewsById } from "../../redux/entities/restaraunts/selectors";
+import {selectRestaurantReviewsById } from "../../redux/entities/restaurants/selectors";
 import { useRequest } from "../../hooks/use-request";
 import { REQUEST_STATUS } from "../../constants/statuses";
 
 export const ReviewsContainer = ({restaurantId, ...props}) => {
-    const restarauntReviews = useSelector((state) => selectRestaurantReviewsById(state, restaurantId))
+    const restaurantReviews = useSelector((state) => selectRestaurantReviewsById(state, restaurantId))
 
     const reviewLoadingStatus = useRequest(getReviews, restaurantId);
     const userLoadingStatus = useRequest(getUsers);
@@ -20,6 +20,6 @@ export const ReviewsContainer = ({restaurantId, ...props}) => {
     }
 
     return(
-        <Reviews {...props} reviewId={restarauntReviews} />
+        <Reviews {...props} reviewId={restaurantReviews} restaurantId={restaurantId} />
     );
 }

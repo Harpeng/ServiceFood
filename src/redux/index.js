@@ -1,10 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import user from "./entities/users";
 import review from "./entities/reviews";
-import restaurant from "./entities/restaraunts";
+import restaurant from "./entities/restaurants";
 import dish from "./entities/dishes";
 import request from "./ui/request";
 import { loggerMiddleware } from "./middleware/logger";
+import cart from "./ui/cart";
 
  const store = configureStore({
     reducer: {
@@ -13,6 +14,7 @@ import { loggerMiddleware } from "./middleware/logger";
         restaurant,
         dish,
         request,
+        cart,
     },
     middleware: (getDefaultMiddleware) => [
         ...getDefaultMiddleware(),
