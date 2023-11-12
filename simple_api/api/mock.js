@@ -198,6 +198,7 @@ const normalizedRestaurants = [
     },
   ];
   
+  // eslint-disable-next-line no-undef
   module.exports = {
     products: normalizedProducts,
     restaurants: normalizedRestaurants,

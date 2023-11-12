@@ -7,20 +7,11 @@ import { ThemeContext } from "../../contexts/Theme";
 import { useContext } from "react";
 import classNames from "classnames";
 import { RestaurantContainer } from "../../components/restaurant/container";
-import { useEffect } from "react";
 
-export const Main = ({ restaurantIds, loading }) => {
-  const [activeRestaurantId, setActiveRestaurantId] = React.useState();
-
-  useEffect(() => {
-    if (restaurantIds?.length ) {
-      setActiveRestaurantId(restaurantIds[0]);
-    }
-  }, [restaurantIds, loading]);
-
-  const findedRestaurant = restaurantIds.find((id) => {
-    return id === activeRestaurantId;
-  });
+export const Main = ({ restaurantIds }) => {
+  const [activeRestaurantId, setActiveRestaurantId] = React.useState(
+    restaurantIds[0]
+  );
 
   const { theme } = useContext(ThemeContext);
 
@@ -28,22 +19,20 @@ export const Main = ({ restaurantIds, loading }) => {
     <section
       className={classNames(styles.page, { [styles.dark]: theme === "dark" })}
     >
-        <AppHeader className={styles.header} />
-        <main className={styles.content}>
-          <RestaurantTabs
-            state={activeRestaurantId}
-            restaurantIds={restaurantIds}
-            onClick={setActiveRestaurantId}
-            className={styles.tabs}
-          />
-          {findedRestaurant && (
-            <RestaurantContainer
-              className={styles.restaurant}
-              restaurantId={findedRestaurant}
-            />
-          )}
-        </main>
-        <Footer className={styles.footer} />
+      <AppHeader className={styles.header} />
+      <main className={styles.content}>
+        <RestaurantTabs
+          state={activeRestaurantId}
+          restaurantIds={restaurantIds}
+          onClick={setActiveRestaurantId}
+          className={styles.tabs}
+        />
+        <RestaurantContainer
+          className={styles.restaurant}
+          restaurantId={activeRestaurantId}
+        />
+      </main>
+      <Footer className={styles.footer} />
     </section>
   );
 };

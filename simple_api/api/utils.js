@@ -13,4 +13,5 @@ const updateById = (entities) => (id, data) => {
   return entities[index];
 };
 
-export default { reply, getById, updateById };
+// eslint-disable-next-line no-undef
+module.exports = { reply, getById, updateById };
