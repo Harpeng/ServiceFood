@@ -1,0 +1,18 @@
+.tabWrapper {
+    width: 100%;
+    background-color: #F5F4F2;
+    border-radius: 22px;
+}
+
+.darkTabWrapper {
+    border: none;
+    background-color: transparent;
+}
+
+.active {
+    background-color: green;
+}
+
+.tab {
+    margin-right: 20px;
+}

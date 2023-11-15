@@ -1,0 +1,13 @@
+.button {
+    max-width: 150px;
+    height: 30px;
+    border-radius: 20px;
+    background-color: #F5F4F2;
+    border: none;
+    cursor: pointer;
+}
+
+.darkTheme {
+    background: linear-gradient(63.18deg, rgb(128, 26, 179), rgb(76, 76, 255));
+    color: white
+}

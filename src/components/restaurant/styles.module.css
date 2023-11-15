@@ -1,0 +1,26 @@
+.name {
+    text-align: center;
+    color: #21201F;
+    font-weight: 800;
+    font-size: 28px;
+    line-height: 31px;
+    letter-spacing: -0.015em;
+}
+
+.reviews {
+    margin-top: 20px;
+}
+
+.title {
+    margin: 0;
+}
+
+.darkThemeName {
+    color: #fff;
+    text-shadow: 0 0 16px rgba(51,51,255,.25), 0 0 8px rgba(51,51,255,.25), 0 4px 32px rgba(51,51,255,.5);
+}
+
+.reviewsList {
+    padding-left: 0;
+    display: flex;
+}

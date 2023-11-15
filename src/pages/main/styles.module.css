@@ -1,0 +1,54 @@
+.page {
+    background-color: #fff;
+    margin: 0 auto;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.content {
+    margin: 0 auto;
+    min-height: 100vh;
+    max-width: 1280px;
+    min-width: 320px;
+    position: relative;
+}
+
+.dark {
+    background-color: #131316;
+}
+
+.header {
+    display: grid;
+    width: 100%;
+    height: 60px;
+    grid-template-rows: 1fr;
+    grid-template-columns: repeat(3, 1fr);
+    position: sticky;
+    top: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.tabs {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px;
+}
+
+.footer {
+    margin: 0;
+    padding: 0;
+}
+
+.restaurant {
+    display: flex;
+    flex-direction: column;
+}
+
+.loader {
+    display: flex;
+    justify-self: center;
+}
