@@ -8,6 +8,7 @@ export const TabContainer = ({id, ...props}) => {
     if(!restaurant) {
         return null;
     }
+    
     return (
         <Tab {...props} id={id} restaurant={restaurant} ></Tab>
     )
