@@ -4,11 +4,11 @@ import styles from "./styles.module.css";
 export const HomePage = () => {
   return (
     <section className={styles.page}>
-      <div className={styles.content}>
-        <Link className={styles.link}>
+      <main className={styles.content}>
+        <Link to="/restaurants" className={styles.link}>
           <button>Учебный проект</button>
         </Link>
-      </div>
+      </main>
     </section>
   );
 };

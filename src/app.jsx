@@ -5,6 +5,7 @@ import { MainContainer } from "./pages/main/container";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { NotFound } from "./pages/not-found/component";
 import { HomePage } from "./pages/home-page/component";
+import {RestaurantContainer} from "./components/restaurant/container"
 
 export const App = () => {
   return (
@@ -13,8 +14,10 @@ export const App = () => {
         <BrowserRouter>
           <Routes>
             <Route index element={<HomePage />} />
-            <Route path="/restaurants" element={<MainContainer />} />
-            <Route path="*" element={< NotFound />} />
+            <Route path="/restaurants" element={<MainContainer />}>
+              <Route path=":restaurantId" element={<RestaurantContainer />} />
+            </Route>
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
       </ThemeProvider>

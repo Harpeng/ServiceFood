@@ -4,7 +4,7 @@ import { StarRating } from "../star-rating/component";
 
 const DEFAULT_VALUE = {
   name: "",
-  review: "",
+  text: "",
   rating: 0,
 };
 
@@ -36,22 +36,15 @@ const reducer = (state, action) => {
 
 export const Form = ({ onClose, onSubmit }) => {
   const [formValue, dispatch] = React.useReducer(reducer, DEFAULT_VALUE);
-  // const resetForm = () => {
-  //   event.preventDefault();
-  //   dispatch({
-  //     type: "reset",
-  //   });
-  //   onClose;
-  // };
 
-  const submit = () => {
+  function submit(event) {
     event.preventDefault();
     onSubmit(formValue);
-    onClose
+    onClose;
   }
 
   return (
-    <form className={styles.form}>
+    <form className={styles.form} onSubmit={submit}>
       <div className={styles.inputContainer}>
         <h4 className={styles.name}>Имя</h4>
         <input
@@ -68,11 +61,12 @@ export const Form = ({ onClose, onSubmit }) => {
         <h4 className={styles.name}>Отзыв</h4>
         <textarea
           placeholder="Напишите отзыв"
+          autoComplete="off"
           cols="33"
           rows="5"
           className={styles.reviewInput}
+          value={formValue.review}
           type="text"
-          value={formValue.text}
           onChange={(event) => {
             dispatch({ type: "setReview", payload: event.target.value });
           }}
@@ -90,13 +84,10 @@ export const Form = ({ onClose, onSubmit }) => {
         </div>
       </div>
       <div className={styles.btnGroup}>
-        <button
-          className={styles.button}
-          onClick={submit}
-        >
+        <button className={styles.button} type="submit">
           Сохранить отзыв
         </button>
-        <button onClick={onClose} className={styles.button}>
+        <button type="button" onClick={onClose} className={styles.button}>
           Отмена
         </button>
       </div>

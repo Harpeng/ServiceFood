@@ -1,30 +1,28 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Dish } from "./component";
-import { selectDishesById } from "../../redux/entities/dishes/selectors";
 import { selectDishAmountId } from "../../redux/ui/cart/selectors";
 import { cartActions } from "../../redux/ui/cart";
 
-export const DishContainer = ({ id, ...props }) => {
-  const dish = useSelector((state) => selectDishesById(state, id));
+export const DishContainer = ({ dishId, ...props }) => {
 
-  const amount = useSelector((state) => selectDishAmountId(state, id));
+  const amount = useSelector((state) => selectDishAmountId(state, dishId));
 
   const dispatch = useDispatch();
 
-  if (!dish) {
+  if (!dishId) {
     return null;
   }
 
   return (
     <Dish
       {...props}
-      dish={dish}
+      dishId={dishId}
       amount={amount}
       increment={() => {
-        dispatch(cartActions.increment(id));
+        dispatch(cartActions.increment(dishId));
       }}
       decrement={() => {
-        dispatch(cartActions.decrement(id));
+        dispatch(cartActions.decrement(dishId));
       }}
     />
   );

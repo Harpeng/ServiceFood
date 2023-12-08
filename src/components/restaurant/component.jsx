@@ -8,6 +8,7 @@ import { ReviewsContainer } from "../reviews/container";
 export const Restaurant = ({restaurant, className}) => {
   const {theme} = useContext(ThemeContext);
 
+
   return (
     <div className={classNames(className)}>
         <h2 className={classNames(styles.name, {[styles.darkThemeName] : theme === "dark"})}>{restaurant.name}</h2>

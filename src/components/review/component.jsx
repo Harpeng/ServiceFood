@@ -2,6 +2,11 @@ import { UserContainer } from "../user/container";
 
 export const Review = ({ review }) => {
 
+  if (!review) {
+    return null;
+  }
+
+
   return (
     <>
       <UserContainer userId={review.userId} />
