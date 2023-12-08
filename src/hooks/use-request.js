@@ -12,11 +12,11 @@ export function useRequest(thunk, ...params) {
     useEffect(() => {
         request.current = dispatch(thunk(...params));
 
-        return() => {
+        return () => {
             request.current.abort();
             request.current = null;
         }
-    }, [...params, thunk]);
+    }, [dispatch, params, thunk]);
 
     return requestStatus;
 }

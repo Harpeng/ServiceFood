@@ -1,0 +1,26 @@
+.page {
+    background-color: #fff;
+    margin: 0 auto;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.content {
+    margin: 0 auto;
+    min-height: 100vh;
+    max-width: 1280px;
+    min-width: 320px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.link {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

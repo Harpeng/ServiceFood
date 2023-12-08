@@ -6,21 +6,10 @@ import styles from "./styles.module.css";
 import { ThemeContext } from "../../contexts/Theme";
 import { useContext } from "react";
 import classNames from "classnames";
-import { RestaurantContainer } from "../../components/restaurant/container";
-import { useEffect } from "react";
+import { Outlet } from "react-router-dom";
 
-export const Main = ({ restaurantIds, loading }) => {
+export const Main = ({ restaurants, loading }) => {
   const [activeRestaurantId, setActiveRestaurantId] = React.useState();
-
-  useEffect(() => {
-    if (restaurantIds?.length ) {
-      setActiveRestaurantId(restaurantIds[0]);
-    }
-  }, [restaurantIds, loading]);
-
-  const findedRestaurant = restaurantIds.find((id) => {
-    return id === activeRestaurantId;
-  });
 
   const { theme } = useContext(ThemeContext);
 
@@ -28,22 +17,21 @@ export const Main = ({ restaurantIds, loading }) => {
     <section
       className={classNames(styles.page, { [styles.dark]: theme === "dark" })}
     >
-        <AppHeader className={styles.header} />
-        <main className={styles.content}>
+      <AppHeader className={styles.header} />
+      <main className={styles.content}>
+        {loading ? (
+          <h1 className={styles.loading}>Loading</h1>
+        ) : (
           <RestaurantTabs
             state={activeRestaurantId}
-            restaurantIds={restaurantIds}
+            restaurants={restaurants}
             onClick={setActiveRestaurantId}
             className={styles.tabs}
           />
-          {findedRestaurant && (
-            <RestaurantContainer
-              className={styles.restaurant}
-              restaurantId={findedRestaurant}
-            />
-          )}
-        </main>
-        <Footer className={styles.footer} />
+        )}
+        <Outlet />
+      </main>
+      <Footer className={styles.footer} />
     </section>
   );
 };

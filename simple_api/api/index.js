@@ -1,7 +1,9 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-undef */
 const router = require("express").Router();
 const { nanoid } = require("nanoid");
 const { restaurants, products, reviews, users } = require("./mock");
-const { reply, getById, updateById } = require("./utils").default;
+const { reply, getById, updateById } = require("./utils");
 
 router.get("/restaurants", (req, res, next) => {
   console.log("request");
