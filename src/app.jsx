@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import { ThemeProvider } from "./contexts/Theme";
 import { Provider } from "react-redux";
 import store from "./redux";
@@ -11,7 +12,7 @@ export const App = () => {
   return (
     <Provider store={store}>
       <ThemeProvider>
-        <BrowserRouter>
+        <BrowserRouter basename={process.env.NODE_ENV==='production' ? '/ServiceFood' : '/'}>
           <Routes>
             <Route index element={<HomePage />} />
             <Route path="/restaurants" element={<MainContainer />}>
