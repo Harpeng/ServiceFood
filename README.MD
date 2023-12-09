@@ -1,6 +1,6 @@
 # Restaurants
 
-[Restaurants](https://harpeng.github.io/ServiceFood/) - это десктопная версия сайта заказа еды. Учебный проект для повторения основ React и изучения новой технологии Redux Toolkit и затема RTK Query
+[Restaurants](https://harpeng.github.io/ServiceFood/) - это десктопная версия сайта заказа еды. Учебный проект для повторения основ React и изучения новой технологии Redux Toolkit и затем RTK Query
 
 ## Технологии
 * React
